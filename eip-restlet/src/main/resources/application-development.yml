@@ -1,0 +1,67 @@
+logging:
+  file: logs/eip-restlet.log
+  level:
+    root: INFO
+    com:
+      fsg:
+        fsgdata:
+          eiprestlet: DEBUG
+    org:
+      springframework:
+        boot:
+          actuate:
+            endpoint:
+              web:
+                servlet: DEBUG
+
+apollo:
+  bootstrap:
+    enabled: true
+    namespaces: application.yml,FX.datasource.yml
+server:
+  port: 8080
+management:
+  info:
+    camel:
+      # to turn off Camel info in (/actuator/info)
+      enabled: true
+      verbose: true
+  endpoints:
+    enabled-by-default: true
+    web:
+      exposure:
+        # expose actuator endpoint via HTTP
+        include: info,health,camelroutes
+  endpoint:
+    health:
+      # show verbose health details (/actuator/info) so you can see Camel information also
+      show-details: always
+    camelroutes:
+      # allow to obtain basic information about Camel routes (read only mode)
+      enabled: true
+      read-only: true
+camel:
+  springboot:
+    name: eip-restlet
+  health:
+    enabled: true
+    check:
+      routes:
+        enabled: true
+spring:
+  application:
+    name: eip-restlet
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: none
+  h2:
+    console:
+      path: /h2-console
+      enabled: true
+      settings:
+        web-allow-others: true
+  cloud:
+    loadbalancer:
+      ribbon:
+        enabled: false

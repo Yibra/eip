@@ -1,0 +1,178 @@
+GET
+{BASE_URL}/api/api-doc
+
+%%%
+# Duration: 489 ms
+# GET
+# http://localhost:8080/api/api-doc
+
+
+# status 200
+
+@Accept-Encoding: gzip
+@Access-Control-Allow-Headers: Origin, Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers
+@User-Agent: okhttp/4.2.0
+@Date: Fri, 03 Apr 2020 18:34:31 GMT
+@Connection: keep-alive
+@Access-Control-Allow-Origin: *
+@Transfer-Encoding: chunked
+@Content-Type: application/json
+@Access-Control-Allow-Methods: GET, HEAD, POST, PUT, DELETE, TRACE, OPTIONS, CONNECT, PATCH
+@Access-Control-Max-Age: 3600
+
+
+# length: [3623]
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "1.0.0",
+    "title" : "DataIntegration API"
+  },
+  "host" : "localhost:8080",
+  "tags" : [ {
+    "name" : "hello",
+    "description" : "Hello world."
+  }, {
+    "name" : "data/{resource}"
+  }, {
+    "name" : "list",
+    "description" : "list agents"
+  } ],
+  "schemes" : [ "http" ],
+  "paths" : {
+    "/hello/{me}" : {
+      "get" : {
+        "tags" : [ "hello" ],
+        "summary" : "greeting",
+        "operationId" : "route2",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "me",
+          "in" : "path",
+          "description" : "name",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "say hello.",
+            "schema" : {
+              "type" : "string"
+            }
+          }
+        }
+      }
+    },
+    "/data/{resource}" : {
+      "get" : {
+        "tags" : [ "data/{resource}" ],
+        "summary" : "Fetch {resource}",
+        "operationId" : "DB",
+        "parameters" : [ {
+          "name" : "resource",
+          "in" : "path",
+          "description" : "data resource",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "data content",
+            "schema" : {
+              "type" : "string",
+              "format" : "com.fsg.fsgdata.eiprestlet.entities.DataResponse"
+            }
+          }
+        }
+      }
+    },
+    "/list" : {
+      "get" : {
+        "tags" : [ "list" ],
+        "operationId" : "route3",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "responses" : {
+          "200" : {
+            "description" : "agents."
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "JsonNode" : {
+      "type" : "object",
+      "properties" : {
+        "array" : {
+          "type" : "boolean"
+        },
+        "empty" : {
+          "type" : "boolean"
+        },
+        "null" : {
+          "type" : "boolean"
+        },
+        "float" : {
+          "type" : "boolean"
+        },
+        "number" : {
+          "type" : "boolean"
+        },
+        "bigInteger" : {
+          "type" : "boolean"
+        },
+        "textual" : {
+          "type" : "boolean"
+        },
+        "boolean" : {
+          "type" : "boolean"
+        },
+        "short" : {
+          "type" : "boolean"
+        },
+        "missingNode" : {
+          "type" : "boolean"
+        },
+        "bigDecimal" : {
+          "type" : "boolean"
+        },
+        "nodeType" : {
+          "type" : "string",
+          "enum" : [ "ARRAY", "BINARY", "BOOLEAN", "MISSING", "NULL", "NUMBER", "OBJECT", "POJO", "STRING" ]
+        },
+        "int" : {
+          "type" : "boolean"
+        },
+        "double" : {
+          "type" : "boolean"
+        },
+        "binary" : {
+          "type" : "boolean"
+        },
+        "containerNode" : {
+          "type" : "boolean"
+        },
+        "long" : {
+          "type" : "boolean"
+        },
+        "object" : {
+          "type" : "boolean"
+        },
+        "integralNumber" : {
+          "type" : "boolean"
+        },
+        "pojo" : {
+          "type" : "boolean"
+        },
+        "valueNode" : {
+          "type" : "boolean"
+        },
+        "floatingPointNumber" : {
+          "type" : "boolean"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,55 @@
+GET
+{BASE_URL}/api/data/user
+# query params
+&filterCondition=id%3E1
+
+%%%
+# Duration: 187 ms
+# GET
+# http://localhost:8080/api/data/user?&filterCondition=id>1
+
+
+# status 200
+
+@Accept-Encoding: gzip
+@resource: user
+@datasource: demo-ds
+@User-Agent: okhttp/4.2.0
+@Date: Tue, 07 Apr 2020 09:35:56 GMT
+@Connection: keep-alive
+@endpoint: data
+@service: data/user
+@Transfer-Encoding: chunked
+@Content-Type: application/json
+@normalURL: DATA/user
+@filterCondition: id>1
+
+
+# length: [397]
+{
+  "user" : [ {
+    "ID" : 2,
+    "NAME" : "Freud2",
+    "AGE" : 29
+  }, {
+    "ID" : 3,
+    "NAME" : "Freud3",
+    "AGE" : 29
+  }, {
+    "ID" : 4,
+    "NAME" : "Freud4",
+    "AGE" : 29
+  }, {
+    "ID" : 5,
+    "NAME" : "Freud5",
+    "AGE" : 29
+  }, {
+    "ID" : 6,
+    "NAME" : "Freud6",
+    "AGE" : 29
+  }, {
+    "ID" : 7,
+    "NAME" : "Freud7",
+    "AGE" : 29
+  } ]
+}

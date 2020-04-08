@@ -1,0 +1,10 @@
+spring:
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        prefer-ip-address: true
+        tags: eip=restlet
+        healthCheckPath: /actuator/camelroutes
+        healthCheckInterval: 5m

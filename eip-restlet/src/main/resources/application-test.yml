@@ -1,0 +1,27 @@
+logging:
+  file: logs/eip-restlet-test.log
+  level:
+    root: INFO
+    com:
+      fsg:
+        fsgdata:
+          eiprestlet: DEBUG
+apollo:
+  bootstrap:
+    enabled: true
+    namespaces: application.yml,FX.datasource.yml
+server:
+  port: 8080
+spring:
+  application:
+    name: eip-restlet
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: none
+  h2:
+    console:
+      path: /h2-console
+      enabled: true
+      settings:
+        web-allow-others: true

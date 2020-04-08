@@ -1,0 +1,21 @@
+GET
+{BASE_URL}/actuator/camelroutes/id/action
+&id=DataBackend
+&action=DETAIL
+%%%
+# GET
+# http://localhost:8080/actuator/camelroutes/id/action?&id=DataBackend&action=DETAIL
+
+
+# status 200
+
+@Connection: keep-alive
+@Transfer-Encoding: chunked
+@Content-Type: application/vnd.spring-boot.actuator.v3+json
+@Date: Tue, 07 Apr 2020 09:31:56 GMT
+
+
+# Duration: 22 ms
+# Response is too large
+# file download complete [C:\Work\Java\eip\.idea\rest-client\download\action]
+# [##################################################]

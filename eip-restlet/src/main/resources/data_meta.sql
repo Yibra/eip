@@ -1,0 +1,2 @@
+insert into resource_sql(id, resource, select_statement) values(1, 'user', 'SELECT id, name, age FROM user');
+insert into resource_sql(id, resource, select_statement) values(2, 'abc', 'SELECT * FROM abc');

@@ -1,0 +1,21 @@
+GET
+{BASE_URL}/api/hello/abc
+%%%
+# Duration: 14 ms
+# GET
+# http://localhost:8080/api/hello/abc
+
+
+# status 200
+
+@Connection: keep-alive
+@me: abc
+@Accept-Encoding: gzip
+@Transfer-Encoding: chunked
+@Content-Type: application/json
+@User-Agent: okhttp/4.2.0
+@Date: Tue, 07 Apr 2020 09:34:00 GMT
+
+
+# length: [9]
+"Hi abc."
