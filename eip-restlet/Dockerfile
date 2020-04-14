@@ -8,9 +8,8 @@ RUN apk add "$JAVA_DISTRIBUTION$JAVA_VERSION" --update && rm -rf /var/cache/apk/
 RUN mkdir -p /opt/settings
 RUN mkdir -p /app
 RUN echo "env=Local" > /opt/settings/server.properties
-RUN echo -e "#!/bin/bash\nconsul agent -dev -client 0.0.0.0\ncd /app\njava -jar eip-restlet.jar" > /app/entrypoint.sh
-RUN chmod +x /app/entrypoint.sh
 ADD entrypoint.sh /app/entrypoint.sh
+RUN chmod +x /app/entrypoint.sh
 ARG JAR_FILE
 ADD target/${JAR_FILE} /app/eip-restlet.jar
 ENTRYPOINT ["/app/entrypoint.sh"]
