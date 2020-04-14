@@ -9,7 +9,7 @@ logging:
 apollo:
   bootstrap:
     enabled: true
-    namespaces: application.yml,FX.datasource.yml
+    namespaces: application,FX.datasource.yml
 server:
   port: 8080
 spring:
