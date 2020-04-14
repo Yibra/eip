@@ -7,5 +7,5 @@ RUN echo "env=Local" > /opt/settings/server.properties
 ARG JAR_FILE
 ADD target/${JAR_FILE} /app/eip-restlet.jar
 WORKDIR /app
-ENTRYPOINT ["java", "-jar", "eip-restlet.jar"]
+ENTRYPOINT ["java", "-jar", "eip-restlet.jar", "--spring.profiles.active=prod"]
 EXPOSE 8080

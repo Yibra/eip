@@ -1,4 +1,8 @@
 spring:
+  profiles.active: dev
+---
+spring:
+  profiles: dev
   cloud:
     consul:
       host: localhost
@@ -8,3 +12,22 @@ spring:
         tags: eip=restlet
         healthCheckPath: /actuator/camelroutes
         healthCheckInterval: 5m
+---
+spring:
+  profiles: prod
+  cloud:
+    consul:
+      host: consul
+      port: 8500
+      discovery:
+        prefer-ip-address: true
+        tags: eip=restlet
+        healthCheckPath: /actuator/camelroutes
+        healthCheckInterval: 1m
+---
+spring:
+  profiles: test
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
