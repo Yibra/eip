@@ -206,14 +206,6 @@
 				</configuration>
 			</plugin>
 		</plugins>
-<!--		<resources>-->
-<!--			<resource>-->
-<!--				<directory>${basedir}/src/main/scripts</directory>-->
-<!--				<includes>-->
-<!--					<include>**/*.sh</include>-->
-<!--				</includes>-->
-<!--			</resource>-->
-<!--		</resources>-->
 	</build>
 	<repositories>
 		<repository>

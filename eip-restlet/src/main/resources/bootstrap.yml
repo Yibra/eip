@@ -9,20 +9,24 @@ spring:
       port: 8500
       discovery:
         prefer-ip-address: true
-        tags: eip=restlet
+        tags: eip-restlet
         healthCheckPath: /actuator/camelroutes
         healthCheckInterval: 5m
 ---
 spring:
   profiles: prod
   cloud:
+    inetutils:
+      preferredNetworks:
+        - 192.168
     consul:
       host: consul
       port: 8500
       discovery:
         prefer-ip-address: true
-        tags: eip=restlet
-        healthCheckPath: /actuator/camelroutes
+        tags: eip-restlet
+        instance-id: ${spring.application.name}:${spring.cloud.client.ip-address}
+        healthCheckPath: http://${spring.cloud.client.ip-address}:${server.port}/actuator/camelroutes
         healthCheckInterval: 1m
 ---
 spring:
