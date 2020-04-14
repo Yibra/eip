@@ -1,5 +1,5 @@
 FROM consul:1.7.2
-MAINTAINER chenxin.ma chenxin.ma@qq.com
+MAINTAINER chenxin.ma <chenxin.ma@qq.com>
 CMD ["agent", "-dev", "-client", "0.0.0.0"]
 ENV JAVA_DISTRIBUTION openjdk
 ENV JAVA_VERSION 8
@@ -8,9 +8,10 @@ RUN apk add "$JAVA_DISTRIBUTION$JAVA_VERSION" --update && rm -rf /var/cache/apk/
 RUN mkdir -p /opt/settings
 RUN mkdir -p /app
 RUN echo "env=Local" > /opt/settings/server.properties
-CMD ["java", "-version"]
+RUN echo -e "#!/bin/bash\nconsul agent -dev -client 0.0.0.0\ncd /app\njava -jar eip-restlet.jar" > /app/entrypoint.sh
+RUN chmod +x /app/entrypoint.sh
+ADD entrypoint.sh /app/entrypoint.sh
 ARG JAR_FILE
 ADD target/${JAR_FILE} /app/eip-restlet.jar
-WORKDIR /app
-ENTRYPOINT ["java", "-jar", "eip-restlet.jar"]
+ENTRYPOINT ["/app/entrypoint.sh"]
 EXPOSE 8080

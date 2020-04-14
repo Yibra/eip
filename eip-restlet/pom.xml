@@ -188,15 +188,15 @@
 				<groupId>com.spotify</groupId>
 				<artifactId>dockerfile-maven-plugin</artifactId>
 				<version>${dockerfile-maven-version}</version>
-				<executions>
-					<execution>
-						<id>default</id>
-						<goals>
-							<goal>build</goal>
+<!--				<executions>-->
+<!--					<execution>-->
+<!--						<id>default</id>-->
+<!--						<goals>-->
+<!--							<goal>build</goal>-->
 <!--							<goal>push</goal>-->
-						</goals>
-					</execution>
-				</executions>
+<!--						</goals>-->
+<!--					</execution>-->
+<!--				</executions>-->
 				<configuration>
 					<repository>${docker.image.prefix}/${project.artifactId}</repository>
 					<tag>${project.version}</tag>
@@ -206,6 +206,14 @@
 				</configuration>
 			</plugin>
 		</plugins>
+<!--		<resources>-->
+<!--			<resource>-->
+<!--				<directory>${basedir}/src/main/scripts</directory>-->
+<!--				<includes>-->
+<!--					<include>**/*.sh</include>-->
+<!--				</includes>-->
+<!--			</resource>-->
+<!--		</resources>-->
 	</build>
 	<repositories>
 		<repository>
